@@ -8,10 +8,13 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "licenseGen": "node licensecheck.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "compare-versions": "^3.5.0",
+    "papaparse": "^5.0.1",
     "quasar": "^1.0.0"
   },
   "devDependencies": {
