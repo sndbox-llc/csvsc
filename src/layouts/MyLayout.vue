@@ -16,7 +16,7 @@
           <q-btn flat @click="$router.push({ path: '/'})">CSVSC</q-btn>
         </q-toolbar-title>
 
-        <div>CSVを連結します</div>
+        <div>Version 0.0.2</div>
       </q-toolbar>
     </q-header>
 
@@ -33,7 +33,7 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>使い方</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
+            <q-item-label caption>How to use</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" href="https://github.com/ueda19850603/csvsc">
@@ -42,7 +42,7 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
+            <q-item-label caption>open source</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable to="/license">
@@ -51,7 +51,7 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>オープンソース・ソフトウェア・ライセンス</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
+            <q-item-label caption>open source software license</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" href="https://nipo.sndbox.jp">

@@ -1,6 +1,6 @@
 {
   "name": "csvsc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "join multiple csv file",
   "productName": "csvsc",
   "cordovaId": "org.cordova.quasar.app",
