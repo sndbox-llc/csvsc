@@ -1,6 +1,6 @@
 {
   "name": "csvsc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "join multiple csv file",
   "productName": "csvsc",
   "cordovaId": "jp.sndbox.nipoextends",
