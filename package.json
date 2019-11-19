@@ -1,9 +1,9 @@
 {
   "name": "csvsc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "join multiple csv file",
   "productName": "csvsc",
-  "cordovaId": "org.cordova.quasar.app",
+  "cordovaId": "jp.sndbox.nipoextends",
   "author": "shinya ueda <info@sndbox.jp>",
   "private": true,
   "scripts": {
@@ -14,8 +14,8 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "compare-versions": "^3.5.0",
-    "papaparse": "^5.0.1",
-    "quasar": "^1.0.0"
+    "papaparse": "^5.1.0",
+    "quasar": "1.0.0"
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
