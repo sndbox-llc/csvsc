@@ -82,6 +82,7 @@ export default {
               })
               result.meta.fields.forEach(row => {
                 this.headers.push(row)
+                console.log(this.headers)
               })
             }
           })

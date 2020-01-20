@@ -26,30 +26,11 @@ module.exports = function (ctx) {
     ],
 
     framework: {
-      // iconSet: 'ionicons-v4',
+      iconSet: 'material-icons', // Quasar icon set
+      all: 'auto',
       // lang: 'de', // Quasar language
-
       // all: true, // --- includes everything; for dev only!
-
-      components: [
-        'QLayout',
-        'QHeader',
-        'QDrawer',
-        'QPageContainer',
-        'QPage',
-        'QToolbar',
-        'QToolbarTitle',
-        'QBtn',
-        'QIcon',
-        'QList',
-        'QItem',
-        'QItemSection',
-        'QItemLabel',
-        'QCard',
-        'QCardSection',
-        'QCardActions'
-      ],
-
+      components: [],
       directives: [
         'Ripple'
       ],

@@ -16,7 +16,7 @@
           <q-btn flat @click="$router.push({ path: '/'})">CSVSC</q-btn>
         </q-toolbar-title>
 
-        <div>Version 0.0.2</div>
+        <div>Version 0.0.3</div>
       </q-toolbar>
     </q-header>
 
