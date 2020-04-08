@@ -7,6 +7,7 @@
       <q-btn color="primary" label="リセット" @click="reset()" />
       <q-btn color="primary" label="CSVダウンロード" @click="download()" />
     </div>
+    <q-btn color="secondary" label="お問い合わせ" @click="$router.push({ path: '/contact' })" />
     <div class="text-bold">総レコード数</div>
     {{ csvLen }}件
     <div class="text-bold">連結対象のファイル</div>

@@ -16,7 +16,7 @@
           <q-btn flat @click="$router.push({ path: '/'})">CSVSC</q-btn>
         </q-toolbar-title>
 
-        <div>Version 0.0.3</div>
+        <div>Version 0.0.5</div>
       </q-toolbar>
     </q-header>
 
@@ -27,6 +27,15 @@
     >
       <q-list>
         <q-item-label header>concsvについて</q-item-label>
+        <q-item clickable to="/">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>CSVSC</q-item-label>
+            <q-item-label caption>連結しようぜ</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable to="/manual">
           <q-item-section avatar>
             <q-icon name="school" />
@@ -52,6 +61,15 @@
           <q-item-section>
             <q-item-label>オープンソース・ソフトウェア・ライセンス</q-item-label>
             <q-item-label caption>open source software license</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable to="/contact">
+          <q-item-section avatar>
+            <q-icon name="chat" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>連絡先</q-item-label>
+            <q-item-label caption>バグの報告やご要望があれば連絡Plz</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" href="https://nipo.sndbox.jp">
