@@ -1,60 +1,83 @@
 <template>
   <q-page padding>
-    <div class="q-ma-xl text-center bg-grey" style="height:500px" @dragover.prevent="checkDrag($event)" @dragleave.prevent="checkDrag($event)" @drop.prevent="onDrop">
-      <p class="text-white text-bold q-pt-xl">ここにCSVファイルをドロップ</p>
+    <div class="q-ma-xl text-center bg-grey" style="height:300px" @dragover.prevent="dragFlg = true" @dragleave.prevent="dragFlg = false" @drop.prevent="getFile">
+      <p class="text-white text-bold q-pt-xl text-h6">ここにCSVファイルをドロップ</p>
     </div>
-    <div class="text-center">
-      <q-btn color="primary" label="リセット" @click="reset()" />
-      <q-btn color="primary" label="CSVダウンロード" @click="download()" />
-    </div>
-    <q-btn color="secondary" label="お問い合わせ" @click="$router.push({ path: '/contact' })" />
-    <div class="text-bold">総レコード数</div>
-    {{ csvLen }}件
-    <div class="text-bold">連結対象のファイル</div>
-    <q-badge v-for="(fileName, index) in fileNames" :key="index + 'file'" class="q-mr-md">
-      {{ fileName }}
-    </q-badge>
+    <div v-if="uniqHeaders.length !== 0">
+      <div class="text-center">
+        <q-btn-group>
+          <q-btn color="primary" label="リセット" outline @click="reset()" />
+          <q-btn color="primary" label="CSVダウンロード" @click="download()" />
+        </q-btn-group>
+      </div>
+      <div class="text-bold">総レコード数</div>
+      {{ csvLen }}件
+      <div class="text-bold">連結対象のファイル</div>
+      <q-badge v-for="(fileName, index) in fileNames" :key="index + 'file'" class="q-mr-md">
+        {{ fileName }}
+      </q-badge>
 
-    <div class="text-bold">項目リスト</div>
-    <q-badge v-for="(field, idx) in uniqHeaders" :key="idx" class="q-mr-md">
-      {{ field }}
-    </q-badge>
+      <div class="text-bold">項目リスト</div>
+      <q-table :rows="csvData" :columns="tableColumns" dense separator="cell" :rows-per-page-options="[0]">
+        <template #body-cell="props">
+          <q-td :props="props" :class="(props.row.fileIndex % 2 === 0)?'bg-blue-10 text-white':'bg-white text-black'">
+            {{ props.value }}
+          </q-td>
+        </template>
+      </q-table>
+    </div>
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, computed, ref } from 'vue'
 import Papa from 'papaparse'
+import { Notify, QTableColumn } from 'quasar'
+interface csvDataIF {
+  [key: string]: string | number
+}
+export default defineComponent({
+  setup () {
+    const csvData = ref<csvDataIF[]>([])
+    const headers = ref<string[]>([])
+    const fileNames = ref<string[]>([])
+    const dragFlg = ref(false)
+    /** 追加したファイルのインデックス。主にテーブルの色分けに使用する */
+    const fileIndex = ref(0)
+    const setting = ref({
+      cutFirstLine: true,
+      delimita: ','
+    })
+    const csvLen = computed(() => csvData.value.length)
+    const uniqHeaders = computed(() => { return Array.from(new Set(headers.value)) })
+    const tableColumns = computed(() => {
+      return uniqHeaders.value.map(i => {
+        const col: QTableColumn = {
+          name: i,
+          label: i,
+          field: i,
+          align: 'left'
+        }
+        return col
+      })
+    })
 
-export default {
-  data () {
-    return {
-      isDrag: null,
-      csvData: [],
-      headers: [],
-      fileNames: []
+    /**
+     * リセット
+     */
+    function reset () {
+      csvData.value = []
+      headers.value = []
+      fileNames.value = []
+      fileIndex.value = 0
     }
-  },
-  computed: {
-    csvLen: function () {
-      return this.csvData.length
-    },
-    uniqHeaders: function () {
-      return this.headers.filter((x, i, self) => self.indexOf(x) === i)
-    }
-  },
-  created () {
-  },
-  methods: {
-    reset () {
-      this.csvData = []
-      this.headers = []
-      this.uniqHeaders = []
-    },
-    download () {
-      // this.uniqHeaders = this.headers.filter((x, i, self) => self.indexOf(x) === i)
+    /**
+     *
+     */
+    function download () {
       const csv = Papa.unparse({
-        'fields': this.uniqHeaders,
-        'data': this.csvData
+        fields: uniqHeaders.value,
+        data: csvData.value
       })
       const bom = new Uint8Array([0xEF, 0xBB, 0xBF])
       const DataBlob = new Blob([bom, csv], { type: 'text/csv' })
@@ -62,36 +85,69 @@ export default {
       link.href = window.URL.createObjectURL(DataBlob)
       link.download = 'nipocon.csv'
       link.click()
-    },
-    checkDrag (event) {
-      // console.log(event)
-    },
-    onDrop (event) {
-      console.log(event)
-      // let fileList = event.target.files ? event.target.files : event.dataTransfer.files
+    }
+
+    /**
+     * ファルドロップ時の処理
+     */
+    async function getFile (event: DragEvent) {
+      // const fileList = event.dataTransfer.files
+      if (!event) { Notify.create({ message: 'エラーです' }); return }
+      if (!event.dataTransfer) { Notify.create({ message: 'エラーです' }); return }
       const fileList = event.dataTransfer.files
-      // ファイル配列（もどき）をループで１件づつよみこみます
+
       Array.from(fileList).forEach(file => {
-        console.log(file)
-        if (file.type === 'text/csv' || file.type === 'application/vnd.ms-excel') {
-          Papa.parse(file, {
-            header: true,
-            complete: result => {
-              this.fileNames.push(file.name)
-              result.data.forEach(row => {
-                this.csvData.push(row)
-              })
-              result.meta.fields.forEach(row => {
-                this.headers.push(row)
-                console.log(this.headers)
-              })
-            }
-          })
-        } else {
-          this.$q.notify({ message: `${file.name}はCSVでは無いようです`, color: 'negative', icon: 'warning', actions: [ { label: '閉じる', color: 'white' } ] })
-        }
+        fileNames.value.push(file.name)
+
+        if ((file.type === 'text/csv' || file.type === 'application/vnd.ms-excel') === false) { Notify.create({ message: `${file.name}はCSVでは無いようです` }); return }
+        Papa.parse(file, {
+          header: true,
+          complete (result) {
+          // complete: result => {
+            console.log(result)
+            result.data.forEach((row) => {
+              console.log(row)
+              csvData.value.push({ ...row as csvDataIF, fileIndex: fileIndex.value })
+            })
+            result.meta.fields?.forEach(row => {
+              headers.value.push(row)
+            })
+            fileIndex.value++
+          }
+        })
       })
     }
+
+    /**
+     * CSV以外がセットされたときの処理
+     */
+    function rejected () { Notify.create({ message: 'CSVファイルを指定して下さい' }) }
+
+    return {
+      rejected,
+      getFile,
+      setting,
+      tableColumns,
+      dragFlg,
+      // checkDrag,
+      csvData,
+      csvLen,
+      download,
+      fileNames,
+      // onDrop,
+      reset,
+      uniqHeaders
+    }
   }
-}
+})
 </script>
+
+<style scoped>
+.droparea {
+  width: 80%;
+  height: 400px;
+  line-height: 100px;
+  color: red;
+
+}
+</style>

@@ -1,0 +1,25 @@
+{
+  "extends": "@quasar/app-webpack/tsconfig-preset",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@cloudFnIf": ["functions/src/if"],
+      "src/*": ["src/*"],
+      "app/*": ["*"],
+      "@app/*": ["*"],
+      "@FRONT/*": ["src/components/*"],
+
+      "components/*": ["src/components/*"],
+      "layouts/*": ["src/layouts/*"],
+      "pages/*": ["src/pages/*"],
+      "assets/*": ["src/assets/*"],
+      "boot/*": ["src/boot/*"]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

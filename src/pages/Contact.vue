@@ -6,25 +6,25 @@
       <q-card-actions>
         <q-btn color="secondary" label="問い合わせフォームへ" @click="gotoWeb()" />
       </q-card-actions>
-      </div>
     </q-card>
   </q-page>
 </template>
 
-<script>
-import thanks from 'components/thanks2.json'
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { openURL } from 'quasar'
 
-export default {
-  data () {
-    return {
-      licenseJson: thanks
+export default defineComponent({
+  setup () {
+    /**
+     * 問い合わせページへ
+     */
+    function gotoWeb () {
+      openURL('https://nipo-plus-doc.sndbox.jp/system/inquery/')
     }
-  },
-  methods : {
-    gotoWeb () {
-      openURL('https://nipo.sndbox.jp/inquery')
+    return {
+      gotoWeb
     }
   }
-}
+})
 </script>
