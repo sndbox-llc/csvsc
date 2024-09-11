@@ -5,12 +5,16 @@ node_modules
 # Quasar core related directories
 .quasar
 /dist
+/quasar.config.*.temporary.compiled*
+
 
 # Cordova related directories and files
 /src-cordova/node_modules
 /src-cordova/platforms
 /src-cordova/plugins
 /src-cordova/www
+/secret
+
 
 # Capacitor related directories and files
 /src-capacitor/www
@@ -25,7 +29,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/admin_elastic/lib
+/admin_tools/lib
 
 # Editor directories and files
 .idea
@@ -35,6 +39,13 @@ yarn-error.log*
 *.sln
 *.log
 
+
+# local .env files
+.env.local*
+
 # Firebase
 .firebase/hosting.*.cache
 .firebase/
+
+/admin_apitest
+/emulators/*
