@@ -13,13 +13,13 @@
   "dependencies": {
     "@quasar/extras": "1.16.12",
     "papaparse": "5.4.1",
-    "quasar": "2.7.7",
+    "quasar": "2.16.11",
     "vue": "3.4.18",
     "vue-router": "4.0.12"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.25.1",
-    "@quasar/app-webpack": "3.5.9",
+    "@quasar/app-webpack": "3.13.4",
     "@types/node": "18.7.14",
     "@types/papaparse": "5.3.14",
     "@typescript-eslint/eslint-plugin": "7.18.0",
