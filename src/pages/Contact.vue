@@ -10,21 +10,11 @@
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { openURL } from 'quasar'
 
-export default defineComponent({
-  setup () {
-    /**
-     * 問い合わせページへ
-     */
-    function gotoWeb () {
-      openURL('https://nipo-plus-doc.sndbox.jp/system/inquery/')
-    }
-    return {
-      gotoWeb
-    }
-  }
-})
+/** 問い合わせページへ */
+function gotoWeb() {
+  openURL('https://nipo-plus-doc.sndbox.jp/system/inquery/')
+}
 </script>

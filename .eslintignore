@@ -1,1 +1,17 @@
+./.eslintrc.cjs
+.eslintrc.cjs
+"**/*.spec.ts"
+/.quasar
+/admin_tools/*
 /dist
+/emulators/*
+/functions/*
+/node_modules
+/quasar.config.*.temporary.compiled*
+/src-bex/www
+/src-capacitor
+/src-cordova
+/src-pwa
+/src-ssr
+babel.config.cjs
+babel.config.js

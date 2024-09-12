@@ -1,6 +1,6 @@
 {
   "name": "csvsc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "join multiple csv file",
   "productName": "csvsc",
   "cordovaId": "jp.sndbox.nipoextends",
@@ -8,36 +8,32 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
-    "test": "echo \"No test specified\" && exit 0",
     "licenseGen": "node licensecheck.js"
   },
   "dependencies": {
-    "@quasar/extras": "1.15.2",
-    "papaparse": "5.3.2",
-    "quasar": "2.7.7",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0"
+    "@quasar/extras": "1.16.12",
+    "papaparse": "5.4.1",
+    "quasar": "2.16.11",
+    "vue": "3.4.18",
+    "vue-router": "4.0.12"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.18.9",
-    "@quasar/app-webpack": "3.5.9",
-    "@types/blueimp-load-image": "5.16.0",
+    "@babel/eslint-parser": "7.25.1",
+    "@quasar/app-webpack": "3.13.4",
     "@types/node": "18.7.14",
-    "@types/papaparse": "5.3.5",
-    "@typescript-eslint/eslint-plugin": "5.36.1",
-    "@typescript-eslint/parser": "5.36.1",
-    "eslint": "8.23.0",
-    "eslint-config-standard": "17.0.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsdoc": "39.3.6",
-    "eslint-plugin-n": "15.2.5",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "6.0.1",
-    "eslint-plugin-vue": "9.4.0",
-    "workbox-webpack-plugin": "^6.0.0"
+    "@types/papaparse": "5.3.14",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.30.0",
+    "eslint-plugin-jsdoc": "50.2.2",
+    "eslint-plugin-vue": "9.28.0",
+    "prettier": "3.3.2",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "engines": {
-    "node": ">= 16.0.0",
+    "node": ">= 18.0.0",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   },

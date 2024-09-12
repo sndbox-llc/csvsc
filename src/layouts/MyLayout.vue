@@ -7,7 +7,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          <q-btn flat @click="$router.push({ path: '/'})">CSVSC</q-btn>
+          <q-btn flat @click="$router.push({ path: '/' })">CSVSC</q-btn>
         </q-toolbar-title>
 
         <div>Version 0.0.6</div>
@@ -59,8 +59,8 @@
             <q-icon name="record_voice_over" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>スポンサード</q-item-label>
-            <q-item-label caption>nipo</q-item-label>
+            <q-item-label>スポンサー</q-item-label>
+            <q-item-label caption>Nipo Plus</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
@@ -72,18 +72,8 @@
   </q-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { openURL } from 'quasar'
+<script setup lang="ts">
+import { ref } from 'vue'
 
-export default defineComponent({
-  name: 'MyLayout',
-  setup () {
-    const leftDrawerOpen = ref(true)
-    return {
-      openURL,
-      leftDrawerOpen
-    }
-  }
-})
+const leftDrawerOpen = ref(true)
 </script>
