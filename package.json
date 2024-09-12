@@ -1,6 +1,6 @@
 {
   "name": "csvsc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "join multiple csv file",
   "productName": "csvsc",
   "cordovaId": "jp.sndbox.nipoextends",
@@ -25,12 +25,12 @@
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "8.57.0",
-    "prettier": "3.3.2",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.30.0",
     "eslint-plugin-jsdoc": "50.2.2",
     "eslint-plugin-vue": "9.28.0",
-    "workbox-webpack-plugin": "7.1.0"
+    "prettier": "3.3.2",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "engines": {
     "node": ">= 18.0.0",
