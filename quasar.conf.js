@@ -6,7 +6,7 @@
  */
 
 // Configuration for your app
-// https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js
+// https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
@@ -19,9 +19,9 @@ module.exports = configure(function (ctx) {
       tsCheckerConfig: {
         eslint: {
           enabled: true,
-          files: './src/**/*.{ts,tsx,js,jsx,vue}'
-        }
-      }
+          files: './src/**/*.{ts,tsx,js,jsx,vue}',
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/prefetch-feature
@@ -30,31 +30,27 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
-    boot: [
-
-    ],
-    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
-    css: [
-      'app.scss'
-    ],
+    boot: [],
+    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#Property%3A-css
+    css: ['app.scss'],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
-      // 'mdi-v5',
-      // 'fontawesome-v5',
+      // 'mdi-v7',
+      // 'fontawesome-v7',
       // 'eva-icons',
       // 'themify',
       // 'line-awesome',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       // 'roboto-font', // optional, you are not bound to it
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
     ],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash' // available values: 'hash', 'history'
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
       // publicPath: '/',
@@ -80,12 +76,12 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
     devServer: {
       server: {
-        type: 'http'
+        type: 'http',
       },
       port: 8089,
-      open: true // opens browser window automatically
+      open: true, // opens browser window automatically
     },
-    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
+    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
     framework: {
       config: {
         loading: { message: '読み込み中' },
@@ -98,17 +94,14 @@ module.exports = configure(function (ctx) {
           progress: true,
           actions: [
             // eslint-disable-next-line @typescript-eslint/no-empty-function
-            { icon: 'close', color: 'white', handler: () => {} }
-          ]
-        }
+            { icon: 'close', color: 'white', handler: () => {} },
+          ],
+        },
       },
       lang: 'ja', // Quasar language pack
 
       // Quasar plugins
-      plugins: [
-        'Notify',
-        'Loading'
-      ]
+      plugins: ['Notify', 'Loading'],
     },
 
     // animations: 'all', // --- includes all animations
@@ -132,8 +125,8 @@ module.exports = configure(function (ctx) {
 
       middlewares: [
         ctx.prod ? 'compression' : '',
-        'render' // keep this as last one
-      ]
+        'render', // keep this as last one
+      ],
     },
     pwa: {
       // workboxPluginMode: 'InjectManifest',
@@ -148,70 +141,64 @@ module.exports = configure(function (ctx) {
         theme_color: '#027be3',
         icons: [
           {
-            'src': 'statics/icons/icon-128x128.png',
-            'sizes': '128x128',
-            'type': 'image/png'
+            src: 'statics/icons/icon-128x128.png',
+            sizes: '128x128',
+            type: 'image/png',
           },
           {
-            'src': 'statics/icons/icon-192x192.png',
-            'sizes': '192x192',
-            'type': 'image/png'
+            src: 'statics/icons/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
           },
           {
-            'src': 'statics/icons/icon-256x256.png',
-            'sizes': '256x256',
-            'type': 'image/png'
+            src: 'statics/icons/icon-256x256.png',
+            sizes: '256x256',
+            type: 'image/png',
           },
           {
-            'src': 'statics/icons/icon-384x384.png',
-            'sizes': '384x384',
-            'type': 'image/png'
+            src: 'statics/icons/icon-384x384.png',
+            sizes: '384x384',
+            type: 'image/png',
           },
           {
-            'src': 'statics/icons/icon-512x512.png',
-            'sizes': '512x512',
-            'type': 'image/png'
-          }
-        ]
-      }
+            src: 'statics/icons/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
     },
 
-
-    cordova: {
-      // id: 'org.cordova.quasar.app',
-      // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
-    },
+    // https://v2.quasar.dev/quasar-cli-vite/developing-cordova-apps/configuring-cordova
+    cordova: {},
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-capacitor-apps/configuring-capacitor
     capacitor: {
-      hideSplashscreen: true
+      hideSplashscreen: true,
     },
     electron: {
       // bundler: 'builder', // or 'packager'
 
-      extendWebpack (cfg) {
+      extendWebpack(cfg) {
         // do something with Electron main process Webpack cfg
         // chainWebpack also available besides this extendWebpack
       },
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
-
         // OS X / Mac App Store
         // appBundleId: '',
         // appCategoryType: '',
         // osxSign: '',
         // protocol: 'myapp://path',
-
         // Windows only
         // win32metadata: { ... }
       },
 
       builder: {
         // https://www.electron.build/configuration/configuration
-
         // appId: 'csvsc'
-      }
-    }
+      },
+    },
   }
 })
