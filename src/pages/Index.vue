@@ -45,10 +45,10 @@ const fileNames = ref<string[]>([])
 const dragFlg = ref(false)
 /** 追加したファイルのインデックス。主にテーブルの色分けに使用する */
 const fileIndex = ref(0)
-const setting = ref({
-  cutFirstLine: true,
-  delimita: ',',
-})
+// const setting = ref({
+//   cutFirstLine: true,
+//   delimita: ',',
+// })
 const csvLen = computed(() => csvData.value.length)
 const uniqHeaders = computed(() => {
   return Array.from(new Set(headers.value))
@@ -87,7 +87,7 @@ function download() {
 }
 
 /** ファルドロップ時の処理 */
-async function getFile(event: DragEvent) {
+function getFile(event: DragEvent) {
   // const fileList = event.dataTransfer.files
   if (!event) {
     Notify.create({ message: 'エラーです' })
@@ -122,11 +122,6 @@ async function getFile(event: DragEvent) {
       },
     })
   })
-}
-
-/** CSV以外がセットされたときの処理 */
-function rejected() {
-  Notify.create({ message: 'CSVファイルを指定して下さい' })
 }
 </script>
 

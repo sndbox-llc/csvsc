@@ -10,7 +10,7 @@
           <q-btn flat @click="$router.push({ path: '/' })">CSVSC</q-btn>
         </q-toolbar-title>
 
-        <div>Version 0.0.6</div>
+        <div>Version 0.0.7</div>
       </q-toolbar>
     </q-header>
 
@@ -35,6 +35,15 @@
             <q-item-label caption>How to use</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable to="/license">
+          <q-item-section avatar>
+            <q-icon name="description" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>ライセンス</q-item-label>
+            <q-item-label caption>利用OSSの表示</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable tag="a" target="_blank" href="https://github.com/ueda19850603/csvsc">
           <q-item-section avatar>
             <q-icon name="code" />
@@ -54,7 +63,7 @@
             <q-item-label caption>バグの報告やご要望があれば</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://nipo-plus-doc.sndbox.jp/">
+        <q-item clickable to="/sponsor">
           <q-item-section avatar>
             <q-icon name="record_voice_over" />
           </q-item-section>

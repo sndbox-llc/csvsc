@@ -1,51 +1,49 @@
 {
   "name": "csvsc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "join multiple csv file",
   "productName": "csvsc",
   "cordovaId": "jp.sndbox.nipoextends",
   "author": "shinya ueda <info@sndbox.jp>",
   "private": true,
+  "type": "module",
   "scripts": {
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "prettier --write \"**/*.{js,ts,vue,css,scss,html,md,json}\" --ignore-path .gitignore && eslint --fix -c ./eslint.config.js \"./src*/**/*.{ts,js,cjs,mjs,vue}\"",
+    "lint:check": "prettier \"**/*.{js,ts,vue,css,scss,html,md,json}\" --ignore-path .gitignore && eslint -c ./eslint.config.js \"./src*/**/*.{ts,js,cjs,mjs,vue}\"",
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "typecheck": "vue-tsc --noEmit",
+    "postinstall": "quasar prepare --silent",
     "licenseGen": "node licensecheck.js"
   },
   "dependencies": {
-    "@quasar/extras": "^2.0.0",
-    "papaparse": "5.5.3",
-    "quasar": "2.20.1",
-    "vue": "^3.5.22",
-    "vue-router": "^4.6.4"
+    "@quasar/extras": "^2.0.2",
+    "papaparse": "^5.5.4",
+    "quasar": "^2.21.3",
+    "vue": "^3.5.39",
+    "vue-router": "^5.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.19.11",
+    "@eslint/js": "^9.39.5",
+    "@intlify/unplugin-vue-i18n": "^11.2.4",
+    "@quasar/app-vite": "^3.0.1",
+    "@types/node": "^22.20.1",
     "@types/papaparse": "^5.5.2",
-    "@babel/eslint-parser": "7.25.1",
-    "@quasar/app-webpack": "3.13.4",
-    "@typescript-eslint/eslint-plugin": "^8.61.1",
-    "@typescript-eslint/parser": "^8.61.1",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "2.30.0",
-    "eslint-plugin-jsdoc": "^62.7.1",
-    "eslint-plugin-vue": "9.28.0",
-    "prettier": "^3.8.1",
-    "workbox-webpack-plugin": "^7.0.0"
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "autoprefixer": "^10.5.3",
+    "eslint": "^9.39.5",
+    "eslint-plugin-vue": "^10.9.2",
+    "globals": "^17.7.0",
+    "license-checker": "^25.0.1",
+    "prettier": "^3.9.5",
+    "typescript": "^6.0.3",
+    "vite-plugin-checker": "^0.12.0",
+    "vue-eslint-parser": "^10.4.1",
+    "vue-tsc": "^3.3.7"
   },
   "engines": {
-    "node": ">= 18.0.0",
-    "npm": ">= 6.14.0"
+    "node": ">= 26 || ^24 || ^22.12"
   },
-  "browserslist": [
-    "last 10 Chrome versions",
-    "last 10 Firefox versions",
-    "last 4 Edge versions",
-    "last 7 Safari versions",
-    "last 8 Android versions",
-    "last 8 ChromeAndroid versions",
-    "last 8 FirefoxAndroid versions",
-    "last 10 iOS versions",
-    "last 5 Opera versions"
-  ],
   "packageManager": "pnpm@11.7.0+sha512.19cc852c120c7125760f2443ee6be0ca5b40f9f50598de1a09a1f177503e010e57c23c77646e01e761de59bf874fb22a3398c33ab9691fc13eb946b6f0f4d620"
 }

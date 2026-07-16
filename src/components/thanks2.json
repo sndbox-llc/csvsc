@@ -1,0 +1,27 @@
+{
+    "@quasar/extras@2.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/quasarframework/quasar",
+        "publisher": "Razvan Stoenescu"
+    },
+    "papaparse@5.5.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/mholt/PapaParse",
+        "publisher": "Matthew Holt"
+    },
+    "quasar@2.21.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/quasarframework/quasar",
+        "publisher": "Razvan Stoenescu"
+    },
+    "vue-router@5.1.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/vuejs/router",
+        "publisher": "Eduardo San Martin Morote"
+    },
+    "vue@3.5.39": {
+        "licenses": "MIT",
+        "repository": "https://github.com/vuejs/core",
+        "publisher": "Evan You"
+    }
+}
