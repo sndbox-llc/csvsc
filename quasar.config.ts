@@ -1,12 +1,10 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
-import { defineConfig } from '#q-app';
+import { defineConfig } from '#q-app'
 
 export default defineConfig((ctx) => {
-
-
-return {
+  return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
 
@@ -34,7 +32,7 @@ return {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
-            target: {
+      target: {
         // browser: 'baseline-widely-available',
         // node: 'node22'
       },
@@ -49,10 +47,10 @@ return {
       // filenameBasedRouting: true,
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-            // vueRouterBase,
+      // vueRouterBase,
       // vueDevtools,
 
-      // publicPath: '/',
+      publicPath: ctx.dev ? '/' : '/csvsc/',
       // define: {},
       // defineEnv: {}
       // ignorePublicFolder: true,
@@ -62,7 +60,6 @@ return {
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
       vitePlugins: [
-
         [
           'vite-plugin-checker',
           {
@@ -75,7 +72,6 @@ return {
           { server: false },
         ],
       ],
-
     },
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
     devServer: {
