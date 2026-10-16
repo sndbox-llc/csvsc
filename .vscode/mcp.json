@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "quasar": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--fetch-retries=0",
+        "@quasar/mcp@latest",
+        "--project",
+        "front"
+      ]
+    }
+  }
+}
